@@ -1,5 +1,7 @@
 # x360w — Xbox 360 Wireless Receiver driver for modern macOS
 
+![x360w](docs/social-card.png)
+
 Use your **original Xbox 360 wireless controller** (with the Microsoft PC Wireless
 Gaming Receiver, `045e:0291` / `0719` / `02a9`) on **macOS 13 → 26, Apple Silicon
 and Intel** — no kernel extension, no SIP disable required for the base mode.
