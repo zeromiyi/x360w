@@ -78,6 +78,7 @@ launchctl load ~/Library/LaunchAgents/com.x360w.driver.plist
 | `x360w-signed` 启动即 Killed: 9 | AMFI 未放行或 boot-args 未持久化，重做第 2 步 |
 | 探针报"IOHIDUserDevice 创建被拒" | 同上 |
 | 找不到接收器 | `system_profiler SPUSBDataType` 查 `045e`；换 USB-A→C 转接/Hub |
+| claim 失败/提示"被其他程序独占" | **Steam 运行时会独占接收器**（Steam Input 自带 360 接收器驱动）。系统级使用请先退出 Steam；玩 Steam 游戏时交给 Steam 即可。驱动会每 3 秒自动重试，接收器一空出来就接管 |
 | 配对了但游戏看不到 | 你处在 generic 模式，请用默认 DualSense 模式 |
 | 系统设置里显示"未连接" | 驱动没在跑；启动 `./x360w-signed` 即转为已连接 |
 | 系统升级后失效 | 回查 `nvram boot-args`；重跑 `scripts/build.sh` |

@@ -25,6 +25,12 @@ macOS GameController 框架（系统设置 → 游戏手柄、Unity/原生游戏
 描述符后，虚拟设备即成为一等公民——macOS 26.5 实测：系统设置显示已连接，
 《潜水员戴夫》直接可玩（含震动）。游戏内显示 PS 键位图标（A=✕ B=○ X=□ Y=△）。
 
+## 截图
+
+| 系统设置 → 游戏控制器 | 终端实时仪表盘 |
+|---|---|
+| ![系统设置显示已连接](docs/screenshot-settings.png) | ![实时仪表盘](docs/screenshot-dashboard.png) |
+
 ## 快速开始
 
 ```bash

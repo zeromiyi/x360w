@@ -84,6 +84,7 @@ launchctl load ~/Library/LaunchAgents/com.x360w.driver.plist
 | `x360w-signed` killed instantly (Killed: 9) | AMFI not relaxed yet, or boot-args not persisted — redo step 2 |
 | probe: "IOHIDUserDevice 创建被拒" | same as above |
 | receiver not found | check `system_profiler SPUSBDataType` for `045e`; try a different USB-A→C adapter/hub |
+| claim failed / driver waits with "被其他程序独占" | **Steam claims the receiver exclusively while running** (Steam Input has its own 360-receiver driver). Quit Steam for system-wide use, or let Steam serve your Steam games and x360w everything else. The driver auto-retries every 3 s and attaches as soon as the receiver is free |
 | controller pairs but no game sees it | you are in `--identity generic` mode; use default DualSense mode |
 | System Settings shows controller "not connected" | happens only when the driver isn't running; start `./x360w-signed` |
 | macOS update breaks it | re-check `nvram boot-args`; re-run `scripts/build.sh` |

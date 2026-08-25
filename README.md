@@ -35,6 +35,12 @@ System Settings shows it as connected and Unity titles (e.g. DAVE THE DIVER)
 are playable, rumble included. Games will show PlayStation glyphs
 (A=✕ B=○ X=□ Y=△).
 
+## Screenshots
+
+| System Settings → Game Controllers | Live terminal dashboard |
+|---|---|
+| ![DualSense connected in System Settings](docs/screenshot-settings.png) | ![x360w live dashboard](docs/screenshot-dashboard.png) |
+
 ## Quick start
 
 ```bash
