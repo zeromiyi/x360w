@@ -215,7 +215,7 @@ static const char *hat_str(const PadState *st) {
 
 static void render(void) {
     printf("\033[H\033[J");  // 清屏并归位
-    printf("x360w · Xbox 360 无线接收器用户态驱动 (M1: USB 链路验证)\n");
+    printf("x360w · Xbox 360 无线接收器用户态驱动\n");
     printf("======================================================\n");
     for (int i = 0; i < g_num_slots; i++) {
         Slot *s = &g_slots[i];
@@ -373,6 +373,16 @@ int main(int argc, char **argv) {
         Slot *s = &g_slots[i];
         s->dev = dev;
         rc = libusb_claim_interface(dev, s->interface_number);
+        // 被占用 (Steam 会独占接收器!) 时耐心重试, 不再直接退出
+        while (rc == LIBUSB_ERROR_ACCESS) {
+            static int warned = 0;
+            if (!warned) {
+                fprintf(stderr, "[提示] 接收器被其他程序独占 (常见于 Steam 运行中), 每 3 秒重试直到释放…\n");
+                warned = 1;
+            }
+            usleep(3000000);
+            rc = libusb_claim_interface(dev, s->interface_number);
+        }
         if (rc != 0) {
             fprintf(stderr, "[槽%d] claim 接口 %d 失败: %s (被其他驱动占用?)\n",
                     i + 1, s->interface_number, libusb_error_name(rc));
