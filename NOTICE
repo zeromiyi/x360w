@@ -1,0 +1,38 @@
+Attributions & prior art
+========================
+
+This project is original code, built on publicly documented hardware
+protocols and the research of others:
+
+- Linux kernel `drivers/input/joystick/xpad.c` (GPLv2) — the authoritative
+  public reference for the Xbox 360 wireless receiver wire protocol
+  (interface signature FF/5D/81, presence/input packet layout, LED/rumble
+  command formats). No xpad code is copied; protocol facts only.
+  https://github.com/torvalds/linux
+
+- @nondebug "dualsense" protocol documentation — Sony DualSense USB HID
+  report descriptor (273 bytes, extracted to src/ds_desc.h) and input/output
+  report layouts. Hardware interface facts.
+  https://github.com/nondebug/dualsense
+
+- nabekhan/X360MacOSReceiverBridge — research-grade proof that the
+  receiver can be driven from macOS user space via libusb and that
+  IOHIDUserDevice is gated by com.apple.developer.hid.virtual.device.
+  Its docs/RESEARCH.md informed the architecture.
+  https://github.com/nabekhan/X360MacOSReceiverBridge
+
+- trollzem/Lumen — documented the community-standard AMFI relaxation flow
+  (nvram boot-args="amfi_get_out_of_my_way=1") that makes ad-hoc-signed
+  virtual HID possible on modern macOS.
+  https://github.com/trollzem/Lumen
+
+- opensource-apple/IOKitUser (Apple open source) — IOHIDUserDevice.h
+  callback signatures (IOHIDUserDeviceRegisterSetReportCallback etc.).
+  https://github.com/opensource-apple/IOKitUser
+
+- 360Controller/360Controller (GPL) — the original kext driver this project
+  succeeds. Its release notes document why a rewrite was necessary.
+  https://github.com/360Controller/360Controller
+
+- rlgerma/xenon360, ThallesP/x360w-userspace — independent userspace
+  prototypes confirming the approach for wired controllers / receivers.

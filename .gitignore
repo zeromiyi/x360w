@@ -1,0 +1,10 @@
+# binaries
+x360w
+x360w-signed
+tests/vhid_smoke
+tests/ds_probe
+tests/ds_probe2
+tests/rumble_test
+tests/rumble_test_ds
+# macOS
+.DS_Store
